@@ -1,17 +1,11 @@
-import {
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
-} from "../../../utils/firebase/firebase.utils";
-
 import SingUpForm from "../../sing-up-form/sign-up-form.component";
 import SingInForm from "../../sing-in-form/sign-in-form.component";
 
-const Authentication = () => {
+import "./authentication.styles.scss";
 
-  
+const Authentication = () => {
   return (
-    <div>
-      <h1>Sing in Page</h1>
+    <div className="auth-container">
       <SingInForm />
       <SingUpForm />
     </div>
