@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithRedirect,
@@ -7,17 +7,18 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-} from "firebase/auth";
+  onAuthStateChanged,
+} from 'firebase/auth';
 
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAFILLEn-rZIZDrL4JMwsQ4r4BYke7VQYA",
-  authDomain: "crwn-clothing-db-49901.firebaseapp.com",
-  projectId: "crwn-clothing-db-49901",
-  storageBucket: "crwn-clothing-db-49901.appspot.com",
-  messagingSenderId: "924071953960",
-  appId: "1:924071953960:web:b7f3948fc692019201171d",
+  apiKey: 'AIzaSyAFILLEn-rZIZDrL4JMwsQ4r4BYke7VQYA',
+  authDomain: 'crwn-clothing-db-49901.firebaseapp.com',
+  projectId: 'crwn-clothing-db-49901',
+  storageBucket: 'crwn-clothing-db-49901.appspot.com',
+  messagingSenderId: '924071953960',
+  appId: '1:924071953960:web:b7f3948fc692019201171d',
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -25,7 +26,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 
 googleProvider.setCustomParameters({
-  prompt: "select_account",
+  prompt: 'select_account',
 });
 
 export const auth = getAuth();
@@ -43,7 +44,7 @@ export const createUserDocumentFromAuth = async (
 ) => {
   if (!userAuth) return;
 
-  const userDocRef = doc(db, "users", userAuth.uid);
+  const userDocRef = doc(db, 'users', userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
 
@@ -60,7 +61,7 @@ export const createUserDocumentFromAuth = async (
         ...additionalInfo,
       });
     } catch (error) {
-      console.log("error creating the user", error.message);
+      console.log('error creating the user', error.message);
     }
   }
 
@@ -80,3 +81,6 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 };
 
 export const signOutUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);
