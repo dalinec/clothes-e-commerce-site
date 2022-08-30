@@ -20,7 +20,6 @@ import {
   query,
   getDocs,
 } from 'firebase/firestore';
-import { cloneElement } from 'react';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAFILLEn-rZIZDrL4JMwsQ4r4BYke7VQYA',
