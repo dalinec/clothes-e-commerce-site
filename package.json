@@ -1,4 +1,5 @@
 {
+  "homepage": "https://dalinec.github.io/clothes-e-commerce-site/",
   "name": "cewn-clothing",
   "version": "0.1.0",
   "private": true,
@@ -11,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "dotenv": "^16.0.2",
     "firebase": "^9.9.3",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
