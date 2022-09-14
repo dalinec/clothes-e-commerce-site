@@ -10,6 +10,7 @@
 
 # production
 /build
+.env
 
 # misc
 .DS_Store
@@ -27,3 +28,6 @@ Footer navigation
 Terms
 Privacy
 Security
+
+# Local Netlify folder
+.netlify
