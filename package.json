@@ -1,5 +1,5 @@
 {
-  "homepage": "https://dalinec.github.io/clothes-e-commerce-site/",
+  "homepage": "https://dalinec.github.io/clothes-e-commerce-site",
   "name": "cewn-clothing",
   "version": "0.1.0",
   "private": true,
@@ -12,7 +12,6 @@
     "@testing-library/user-event": "^13.5.0",
     "dotenv": "^16.0.2",
     "firebase": "^9.9.3",
-    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
@@ -33,7 +32,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -52,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
