@@ -1,4 +1,4 @@
-import { takeLatest, put, all, call, take } from 'redux-saga/effects';
+import { takeLatest, put, all, call } from 'redux-saga/effects';
 
 import { USER_ACTION_TYPES } from './user.types';
 
@@ -20,7 +20,7 @@ import {
   signOutUser,
 } from '../../utils/firebase/firebase.utils';
 
-export function* gerSnapShotFromUserAuth(userAuth, additionalInfo) {
+export function* getSnapShotFromUserAuth(userAuth, additionalInfo) {
   try {
     const userSnapshot = yield call(
       createUserDocumentFromAuth,
@@ -49,14 +49,14 @@ export function* signUp({ payload: { email, password, displayName } }) {
 
 //sign in after sign up
 export function* signInAfterSignUp({ payload: { user, additionalDetails } }) {
-  yield call(gerSnapShotFromUserAuth, user, additionalDetails);
+  yield call(getSnapShotFromUserAuth, user, additionalDetails);
 }
 
 //google sign-in
 export function* signInWithGoogle() {
   try {
     const { user } = yield call(signInWithGooglePopup);
-    yield call(gerSnapShotFromUserAuth, user);
+    yield call(getSnapShotFromUserAuth, user);
   } catch (error) {
     yield put(signInFailed(error));
   }
@@ -70,7 +70,7 @@ export function* signInWithEmail({ payload: { email, password } }) {
       email,
       password
     );
-    yield call(gerSnapShotFromUserAuth, user);
+    yield call(getSnapShotFromUserAuth, user);
   } catch (error) {
     yield put(signInFailed(error));
   }
@@ -91,7 +91,7 @@ export function* isUserAuthenticated() {
   try {
     const userAuth = yield call(getCurrentUser);
     if (!userAuth) return;
-    yield call(gerSnapShotFromUserAuth, userAuth);
+    yield call(getSnapShotFromUserAuth, userAuth);
   } catch (error) {
     yield put(signInFailed(error));
   }
