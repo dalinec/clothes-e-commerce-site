@@ -58,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@types/redux-logger": "^3.0.9",
     "gh-pages": "^4.0.0"
   }
 }
