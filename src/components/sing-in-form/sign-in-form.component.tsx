@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import FormInput from '../form-input/form-input.component';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
-import { SignUpContainer, ButtonsContainer } from './sing-in-form.styles.jsx';
+import { SignUpContainer, ButtonsContainer } from './sing-in-form.styles';
 import {
   googleSignInStart,
   emailSignInStart,
