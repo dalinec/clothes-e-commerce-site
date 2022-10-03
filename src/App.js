@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { checkUserSession } from './store/user/user.action';
 import Spinner from './components/spinner/spinner.component';
+import { GlobalStyle } from './global.styles';
 
 //routes
 const Home = lazy(() => import('./components/routes/home/home.component'));
@@ -26,16 +27,19 @@ const App = () => {
   }, []);
 
   return (
-    <Suspense fallback={<Spinner />}>
-      <Routes>
-        <Route path='/' element={<Navigation />}>
-          <Route index element={<Home />}></Route>
-          <Route path='shop/*' element={<Shop />}></Route>
-          <Route path='auth' element={<Authentication />}></Route>
-          <Route path='checkout' element={<Checkout />}></Route>
-        </Route>
-      </Routes>
-    </Suspense>
+    <>
+      <GlobalStyle />
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          <Route path='/' element={<Navigation />}>
+            <Route index element={<Home />}></Route>
+            <Route path='shop/*' element={<Shop />}></Route>
+            <Route path='auth' element={<Authentication />}></Route>
+            <Route path='checkout' element={<Checkout />}></Route>
+          </Route>
+        </Routes>
+      </Suspense>
+    </>
   );
 };
 
