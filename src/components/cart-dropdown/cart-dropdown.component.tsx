@@ -1,3 +1,5 @@
+import { useCallback } from 'react';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,10 +26,10 @@ const CartDropdown = () => {
 
   const toggleIsCartOpen = () => dispatch(setIsCartOpen(!isCartOpen));
 
-  const goToCheckoutHandler = () => {
+  const goToCheckoutHandler = useCallback(() => {// its not initializing the func every time
     navigate('/checkout');
     toggleIsCartOpen();
-  };
+  }, []);
 
   return (
     <CartDropdownContainer>
