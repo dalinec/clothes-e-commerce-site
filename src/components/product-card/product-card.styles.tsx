@@ -8,11 +8,26 @@ export const ProductCardContainer = styled.div`
   align-items: center;
   position: relative;
 
+  @media screen and (max-width: 425px) {
+    height: 230px;
+  }
+
+  @media screen and (max-width: 375px) {
+    height: 200px;
+  }
+
   img {
     width: 100%;
     height: 95%;
     object-fit: cover cover;
     margin-bottom: 5px;
+
+    @media screen and (max-width: 425px) {
+      height: 200px;
+    }
+    @media screen and (max-width: 375px) {
+      height: 175px;
+    }
   }
 
   button {
@@ -23,10 +38,18 @@ export const ProductCardContainer = styled.div`
     display: none;
 
     @media screen and (max-width: 800px) {
-      display:block;
-      opacity:0.9;
+      display: block;
+      opacity: 0.9;
       min-width: unset;
       padding: 0 10px;
+    }
+
+    @media screen and (max-width: 425px) {
+      top: 135px;
+
+      @media screen and (max-width: 375px) {
+        top: 120px;
+      }
     }
   }
 
@@ -44,13 +67,14 @@ export const ProductCardContainer = styled.div`
   @media screen and (max-width: 800px) {
     width: 40vw;
 
-    &:hover{
-      img{
-        opacity:unset;
+    &:hover {
+      img {
+        opacity: unset;
       }
     }
     button {
       opacity: unset;
+    }
   }
 `;
 
