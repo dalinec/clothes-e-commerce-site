@@ -6,6 +6,16 @@ export const CategoryContainer = styled.div`
   column-gap: 20px;
   row-gap: 50px;
 
+  @media screen and (max-width: 375px) {
+    margin-left: 10px;
+  }
+  @media screen and (max-width: 425px) {
+    margin-left: 18px;
+  }
+  @media screen and (max-width: 768px) {
+    margin-left: 40px;
+  }
+
   @media screen and (max-width: 800px) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
